@@ -1,3 +1,4 @@
 #!/bin/bash
 
-sudo mirai/debug/cnc
+cd ./mirai/debug
+sudo ./cnc

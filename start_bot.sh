@@ -1,3 +1,4 @@
 #!/bin/bash
 
-sudo mirai/debug/mirai.dbg
+cd ./mirai/debug
+sudo ./mirai.dbg
